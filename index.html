@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Day</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .box {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 380px;
+      width: 100%;
+      animation: slideUp 1s ease-out;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.4;
+      background: linear-gradient(90deg, #0d47a1, #000);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: slideUp 1s ease-out;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0,123,255,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 16px rgba(0,123,255,0.45);
+    }
+
+    /* Slide from bottom animation */
+    @keyframes slideUp {
+      0% {
+        transform: translateY(60px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Fade for second text */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width: 480px) {
+      .box {
+        padding: 25px 20px;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      button {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="contentBox">
+    <h2 id="message">It’s your special day 🎉✨</h2>
+    <div class="btn-container" id="buttonContainer">
+      <button id="yesBtn">Yayy</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("yesBtn").addEventListener("click", function() {
+      const msg = document.getElementById("message");
+      const btnContainer = document.getElementById("buttonContainer");
+
+      // Update text
+      msg.textContent = "Do you want to see what I made for you? 💝";
+      msg.style.animation = "fadeIn 1s ease";
+
+      // Replace with Yes & No buttons
+      btnContainer.innerHTML = `
+        <button id="yesOption">Yes</button>
+        <button id="noOption">No</button>
+      `;
+
+      // Add event listeners for new buttons
+    document.getElementById("yesOption").addEventListener("click", () => {
+    window.location.href = "./IMG/Main.html";
+});
+
+
+
+document.getElementById("noOption").addEventListener("click", function() {
+    alert("😡 Don’t press it!");
+  });
+    });
+  </script>
+</body>
+</html>
